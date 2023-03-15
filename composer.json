@@ -1,0 +1,34 @@
+{
+    "name": "tienvx/pact-php-plugin",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tienvx\\PactPhpPlugin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tienvx",
+            "email": "tien.xuan.vo@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "pact-foundation/pact-php": "dev-all as 9.0.0"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/tienvx/pact-php.git"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "tienvx/composer-downloads-plugin": true
+        }
+    }
+}
