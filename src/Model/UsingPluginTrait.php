@@ -6,7 +6,7 @@ use Tienvx\PactPhpPlugin\Exception\PluginNotSupportedBySpecificationException;
 
 trait UsingPluginTrait
 {
-    private function usingPlugin(string $pluginName, ?string $pluginVersion = null): self
+    public function usingPlugin(string $pluginName, ?string $pluginVersion = null): self
     {
         if ($this->getSpecification() < $this->ffi->PactSpecification_V4) {
             throw new PluginNotSupportedBySpecificationException($this->config->getPactSpecificationVersion());
