@@ -30,13 +30,13 @@ trait UsingPluginTrait
         return null;
     }
 
-    protected function withBody(int $interaction, int $part, ?string $contentType = null, ?string $body = null): void
+    protected function withBody(int $part, ?string $contentType = null, ?string $body = null): void
     {
         if (is_null($body) || is_null($contentType)) {
             // Pact Plugin require content type to be set, or it will panic.
             return;
         }
-        $error = $this->ffi->pactffi_interaction_contents($interaction, $part, $contentType, $body);
+        $error = $this->ffi->pactffi_interaction_contents($this->interactionId, $part, $contentType, $body);
         if ($error) {
             throw new InteractionContentNotAddedException($error);
         }
