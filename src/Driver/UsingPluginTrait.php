@@ -41,4 +41,14 @@ trait UsingPluginTrait
             throw new InteractionContentNotAddedException($error);
         }
     }
+
+    protected function setPluginDir(): self
+    {
+        $pluginDir = $this->getPluginDir();
+        \putenv("PACT_PLUGIN_DIR={$pluginDir}");
+
+        return $this;
+    }
+
+    abstract protected function getPluginDir(): string;
 }
