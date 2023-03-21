@@ -29,16 +29,23 @@ class SyncMessageBuilder implements BuilderInterface
         return $this;
     }
 
-    public function withMetadata($metadata): self
+    public function withMetadata(array $metadata): self
     {
         $this->message->setMetadata($metadata);
 
         return $this;
     }
 
-    public function withContent($contents): self
+    public function withContent(mixed $contents): self
     {
         $this->message->setContents($contents);
+
+        return $this;
+    }
+
+    public function withContentType(?string $contentType): self
+    {
+        $this->message->setContentType($contentType);
 
         return $this;
     }
