@@ -8,8 +8,6 @@ use PhpPact\Consumer\MessageBuilder as BaseMessageBuilder;
 
 class MessageBuilder extends BaseMessageBuilder
 {
-    private Message $message;
-
     public function __construct(MessageDriverInterface $driver)
     {
         $this->message = new Message();
