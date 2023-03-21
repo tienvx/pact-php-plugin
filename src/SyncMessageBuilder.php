@@ -43,9 +43,9 @@ class SyncMessageBuilder implements BuilderInterface
         return $this;
     }
 
-    public function startMockServer(): void
+    public function registerMessage(): void
     {
-        $this->driver->startMockServer();
+        $this->driver->registerMessage($this->message);
     }
 
     public function verify(): bool
