@@ -4,6 +4,7 @@ namespace Tienvx\PactPhpPlugin\Driver;
 
 use Tienvx\PactPhpPlugin\Exception\PluginNotSupportedBySpecificationException;
 use Tienvx\PactPhpPlugin\Exception\InteractionContentNotAddedException;
+use Tienvx\PactPhpPlugin\PactPluginHelper;
 
 trait UsingPluginTrait
 {
@@ -44,8 +45,7 @@ trait UsingPluginTrait
 
     protected function setPluginDir(): self
     {
-        $pluginDir = $this->getPluginDir();
-        \putenv("PACT_PLUGIN_DIR={$pluginDir}");
+        PactPluginHelper::setPluginDir($this->getPluginDir());
 
         return $this;
     }
