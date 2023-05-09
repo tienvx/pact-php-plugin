@@ -1,6 +1,6 @@
 <?php
 
-namespace Tienvx\PactPhpPlugin\Exception;
+namespace Tienvx\PactPhpPlugin\Consumer\Exception;
 
 use Exception;
 

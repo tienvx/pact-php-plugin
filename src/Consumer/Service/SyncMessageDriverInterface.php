@@ -1,11 +1,10 @@
 <?php
 
-namespace Tienvx\PactPhpPlugin\Driver;
+namespace Tienvx\PactPhpPlugin\Consumer\Service;
 
-use PhpPact\Consumer\Driver\DriverInterface;
 use PhpPact\Consumer\Model\Message;
 
-interface SyncMessageDriverInterface extends DriverInterface
+interface SyncMessageRegistryInterface
 {
     public function verifyMessage(): bool;
 
