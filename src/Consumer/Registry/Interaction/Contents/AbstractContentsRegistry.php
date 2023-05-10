@@ -1,12 +1,12 @@
 <?php
 
-namespace Tienvx\PactPhpPlugin\Consumer\Driver\Interaction\Contents;
+namespace Tienvx\PactPhpPlugin\Consumer\Registry\Interaction\Contents;
 
-use PhpPact\Consumer\Driver\Interaction\Contents\ContentsDriverInterface;
+use PhpPact\Consumer\Registry\Interaction\Contents\ContentsRegistryInterface;
 use PhpPact\FFI\ClientInterface;
 use Tienvx\PactPhpPlugin\Consumer\Exception\InteractionContentNotAddedException;
 
-abstract class AbstractContentsDriver implements ContentsDriverInterface
+abstract class AbstractContentsRegistry implements ContentsRegistryInterface
 {
     public function __construct(protected ClientInterface $client)
     {

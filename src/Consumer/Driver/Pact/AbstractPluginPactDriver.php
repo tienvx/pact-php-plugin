@@ -9,11 +9,11 @@ abstract class AbstractPluginPactDriver extends PactDriver
 {
     public function cleanUp(): void
     {
-        $this->client->call('pactffi_cleanup_plugins', $this->id);
+        $this->client->call('pactffi_cleanup_plugins', $this->pactRegistry->getId());
         parent::cleanUp();
     }
 
-    protected function setUp(): void
+    public function setUp(): void
     {
         parent::setUp();
         $this
@@ -36,7 +36,7 @@ abstract class AbstractPluginPactDriver extends PactDriver
             throw new PluginNotSupportedBySpecificationException($this->config->getPactSpecificationVersion());
         }
 
-        $this->client->call('pactffi_using_plugin', $this->id, $this->getPluginName(), $this->getPluginVersion());
+        $this->client->call('pactffi_using_plugin', $this->pactRegistry->getId(), $this->getPluginName(), $this->getPluginVersion());
 
         return $this;
     }
