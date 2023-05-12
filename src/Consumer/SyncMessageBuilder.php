@@ -3,13 +3,19 @@
 namespace Tienvx\PactPhpPlugin\Consumer;
 
 use PhpPact\Consumer\AbstractMessageBuilder;
+use PhpPact\Standalone\MockService\MockServerConfigInterface;
 use Tienvx\PactPhpPlugin\Consumer\Driver\Interaction\SyncMessageDriverInterface;
+use Tienvx\PactPhpPlugin\Consumer\Factory\SyncMessageDriverFactory;
+use Tienvx\PactPhpPlugin\Consumer\Factory\SyncMessageDriverFactoryInterface;
 
 class SyncMessageBuilder extends AbstractMessageBuilder
 {
-    public function __construct(private SyncMessageDriverInterface $driver)
+    private SyncMessageDriverInterface $driver;
+
+    public function __construct(MockServerConfigInterface $config, ?SyncMessageDriverFactoryInterface $driverFactory = null)
     {
         parent::__construct();
+        $this->driver = ($driverFactory ?? new SyncMessageDriverFactory())->create($config);
     }
 
     public function registerMessage(): void
