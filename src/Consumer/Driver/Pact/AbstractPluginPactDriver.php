@@ -16,9 +16,7 @@ abstract class AbstractPluginPactDriver extends PactDriver
     public function setUp(): void
     {
         parent::setUp();
-        $this
-            ->setPluginDir()
-            ->usingPlugin();
+        $this->usingPlugin();
     }
 
     abstract protected function getPluginName(): string;
@@ -28,8 +26,6 @@ abstract class AbstractPluginPactDriver extends PactDriver
         return null;
     }
 
-    abstract protected function getPluginDir(): string;
-
     private function usingPlugin(): self
     {
         if ($this->getSpecification() < $this->client->get('PactSpecification_V4')) {
@@ -37,13 +33,6 @@ abstract class AbstractPluginPactDriver extends PactDriver
         }
 
         $this->client->call('pactffi_using_plugin', $this->pactRegistry->getId(), $this->getPluginName(), $this->getPluginVersion());
-
-        return $this;
-    }
-
-    private function setPluginDir(): self
-    {
-        \putenv("PACT_PLUGIN_DIR={$this->getPluginDir()}");
 
         return $this;
     }
